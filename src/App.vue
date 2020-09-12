@@ -3,7 +3,9 @@
     <!-- <h3>hello world</h3> -->
     <router-view name="pageHead"></router-view>
     <el-row class="tac">
-      <router-view name="sideBar"></router-view>
+      <!-- <keep-alive> -->
+        <router-view name="sideBar"></router-view>
+      <!-- </keep-alive> -->
       <el-col :span="20">
         <router-view></router-view>
       </el-col>

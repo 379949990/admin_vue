@@ -1,60 +1,66 @@
 <template id="sideBar">
-  <!-- <el-row class="tac"> -->
-  <el-col :span="4" class="sideBar_list">
-    <el-menu
-      default-active="1"
-      class="el-menu-vertical-demo"
-      @open="handleOpen"
-      @close="handleClose"
-      background-color="#545c64"
-      text-color="#fff"
-      active-text-color="#ffd04b">
-      <div id="sidebarTitle">
-        <img style="cursor: pointer;" id="toHome" src="https://du.hupucdn.com/FlkMCSkNXyR8hXVWkVaAWhtwfEIW" width="25" height="25">
-        <h5>后台管理系统</h5>
-      </div>
-      <el-menu-item index="1" @click="$router.push('/admin')">
-        <i class="el-icon-menu"></i>
-        <span slot="title">系统首页</span>
-      </el-menu-item>
-      <el-menu-item index="2" @click="$router.push('/goods')">
-          <i class="el-icon-document"></i>
-          <span slot="title">商品管理</span>
-      </el-menu-item>
-      <el-menu-item index="3" @click="$router.push('/user')">
-        <i class="el-icon-user-solid"></i>
-        <span slot="title">用户管理</span>
-      </el-menu-item>
-      <el-menu-item index="4" @click="$router.push('/cart')">
-        <i class="el-icon-s-ticket"></i>
-        <span slot="title">购物车管理</span>
-      </el-menu-item>
-      <el-menu-item index="5" @click="$router.push('/order')">
-        <i class="el-icon-s-order"></i>
-        <span slot="title">订单管理</span>
-      </el-menu-item>
-      <el-menu-item index="6" @click="$router.push('/message')">
-        <i class="el-icon-share"></i>
-        <span slot="title">消息管理</span>
-      </el-menu-item>
-      <el-menu-item index="7" @click="$router.push('/banner')">
-        <i class="el-icon-picture"></i>
-        <span slot="title">轮播图管理</span>
-      </el-menu-item>
-    </el-menu>
-  </el-col>
-  <!-- </el-row> -->
+  <keep-alive>
+    <!-- <el-row class="tac"> -->
+    <el-col :span="4" class="sideBar_list">
+      <el-menu
+        default-active=1
+        class="el-menu-vertical-demo"
+        @select="selectOn"
+        background-color="#545c64"
+        text-color="#fff"
+        active-text-color="#ffd04b">
+        <div id="sidebarTitle">
+          <img style="cursor: pointer;" id="toHome" src="https://du.hupucdn.com/FlkMCSkNXyR8hXVWkVaAWhtwfEIW" width="25" height="25">
+          <h5>后台管理系统</h5>
+        </div>
+        <el-menu-item index="1" @click="$router.push('/admin')">
+          <i class="el-icon-menu"></i>
+          <span slot="title">系统首页</span>
+        </el-menu-item>
+        <el-menu-item index="2" @click="$router.push('/goods')">
+            <i class="el-icon-document"></i>
+            <span slot="title">商品管理</span>
+        </el-menu-item>
+        <el-menu-item index="3" @click="$router.push('/user')">
+          <i class="el-icon-user-solid"></i>
+          <span slot="title">用户管理</span>
+        </el-menu-item>
+        <el-menu-item index="4" @click="$router.push('/cart')">
+          <i class="el-icon-s-ticket"></i>
+          <span slot="title">购物车管理</span>
+        </el-menu-item>
+        <el-menu-item index="5" @click="$router.push('/order')">
+          <i class="el-icon-s-order"></i>
+          <span slot="title">订单管理</span>
+        </el-menu-item>
+        <el-menu-item index="6" @click="$router.push('/message')">
+          <i class="el-icon-share"></i>
+          <span slot="title">消息管理</span>
+        </el-menu-item>
+        <el-menu-item index="7" @click="$router.push('/banner')">
+          <i class="el-icon-picture"></i>
+          <span slot="title">轮播图管理</span>
+        </el-menu-item>
+      </el-menu>
+    </el-col>
+    <!-- </el-row> -->
+  </keep-alive>
 </template>
 
 <script>
 
 export default {
+  data () {
+    return {
+      index: 1
+    }
+  },
+  computed: {
+  },
   methods: {
-    handleOpen (key, keyPath) {
-      console.log(key, keyPath)
-    },
-    handleClose (key, keyPath) {
-      console.log(key, keyPath)
+    selectOn (res) {
+      console.log(res)
+      this.index = res
     }
   }
 }
